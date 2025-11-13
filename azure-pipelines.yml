@@ -17,6 +17,12 @@ stages:
       - script: echo FirstJob
       - bash: echo $(NEWVARIABLE)
       - bash: echo $(Build.BuildNumber)
+      - bash: echo $(Build.BuildId)
+      - bash: echo $(Build.SourceBranchName)
+      - bash: echo $(Build.SourceDirectory)
+      - bash: echo $(Build.ArtifactStagingDirectory)
+      
+
 
 # - stage: DevDeploy
 #   variables:
