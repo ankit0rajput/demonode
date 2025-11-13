@@ -16,14 +16,17 @@ stages:
     steps:
       - script: echo FirstJob
       - bash: echo $(NEWVARIABLE)
+
 - stage: DevDeploy
-  dependsOn:
-  - Build
+  variables:
+    environment: Dev
+  dependsOn: 
+    - Build
   jobs: 
     - job: FirstJobfromDevDeploy
       steps:
         - script: echo FirstJobfromDevDeploy
-
+        - bash: echo $(environment)
 - stage: QaDeploy
   dependsOn:
   - Build
