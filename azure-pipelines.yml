@@ -15,10 +15,23 @@ stages:
   - job: FirstJob
     steps:
       - script: echo FirstJob
+
 - stage: DevDeploy
   jobs: 
     - job: FirstJobfromDevDeploy
       steps:
         - script: echo FirstJobfromDevDeploy
+
+- stage: QaDeploy
+  jobs:
+    - job: FirstjobforQADeploy
+      steps:
+        - script: echo FirstjobforQADeploy
+
+- stage: ProdDeploy
+  jobs:
+    - job: FirstJObforProd
+      steps:
+        - script: echo firstfromprod
 
   
