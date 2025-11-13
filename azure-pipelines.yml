@@ -17,18 +17,27 @@ stages:
       - script: echo FirstJob
 
 - stage: DevDeploy
+  dependsOn:
+    - Build
   jobs: 
     - job: FirstJobfromDevDeploy
       steps:
         - script: echo FirstJobfromDevDeploy
 
 - stage: QaDeploy
+  dependsOn:
+    - build
+    - DevDeploy
   jobs:
     - job: FirstjobforQADeploy
       steps:
         - script: echo FirstjobforQADeploy
 
 - stage: ProdDeploy
+  dependsOn:
+    - Build
+    - DevDeploy
+    - QaDeploy
   jobs:
     - job: FirstJObforProd
       steps:
