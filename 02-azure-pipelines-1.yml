@@ -26,4 +26,14 @@ stages:
             steps:
               - script: echo "deploy on dev"
 
+- stage: QADeployment
+  jobs:
+    - deployment: QADeployment
+      environment: QA
+      strategy:
+        runOnce:
+          deploy:
+            steps:
+              - script: echo "deploy on QA"
+
       
