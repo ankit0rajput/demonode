@@ -19,6 +19,7 @@ stages:
 - stage: DevDeployment
   jobs:
     - deployment: DevDeployment
+      environment: Dev
       strategy:
         runOnce:
           deploy:
