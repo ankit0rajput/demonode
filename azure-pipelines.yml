@@ -15,7 +15,7 @@ stages:
   - job: FirstJob
     steps:
       - script: echo FirstJob
-
+      - bash: echo $(NEWVARIABLE)
 - stage: DevDeploy
   dependsOn:
   - Build
@@ -26,7 +26,7 @@ stages:
 
 - stage: QaDeploy
   dependsOn:
-  - build
+  - Build
   - DevDeploy
   jobs:
     - job: FirstjobforQADeploy
