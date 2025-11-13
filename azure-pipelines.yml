@@ -16,34 +16,35 @@ stages:
     steps:
       - script: echo FirstJob
       - bash: echo $(NEWVARIABLE)
+      - bash: echo $(Build.BuildNumber)
 
-- stage: DevDeploy
-  variables:
-    environment: Dev
-  dependsOn: 
-    - Build
-  jobs: 
-    - job: FirstJobfromDevDeploy
-      steps:
-        - script: echo FirstJobfromDevDeploy
-        - bash: echo $(environment)
-- stage: QaDeploy
-  dependsOn:
-  - Build
-  - DevDeploy
-  jobs:
-    - job: FirstjobforQADeploy
-      steps:
-        - script: echo FirstjobforQADeploy
+# - stage: DevDeploy
+#   variables:
+#     environment: Dev
+#   dependsOn: 
+#     - Build
+#   jobs: 
+#     - job: FirstJobfromDevDeploy
+#       steps:
+#         - script: echo FirstJobfromDevDeploy
+#         - bash: echo $(environment)
+# - stage: QaDeploy
+#   dependsOn:
+#   - Build
+#   - DevDeploy
+#   jobs:
+#     - job: FirstjobforQADeploy
+#       steps:
+#         - script: echo FirstjobforQADeploy
 
-- stage: ProdDeploy
-  dependsOn:
-  - Build
-  - DevDeploy
-  - QaDeploy
-  jobs:
-    - job: FirstJObforProd
-      steps:
-        - script: echo firstfromprod
+# - stage: ProdDeploy
+#   dependsOn:
+#   - Build
+#   - DevDeploy
+#   - QaDeploy
+#   jobs:
+#     - job: FirstJObforProd
+#       steps:
+#         - script: echo firstfromprod
 
   
