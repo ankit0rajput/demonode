@@ -10,7 +10,7 @@ pool:
   vmImage: ubuntu-latest
 #Stages => job => steps (task)
 jobs:
-- job:
+- job: job1
   steps:
   - script: echo Hello, world!
     displayName: 'Run a one-line script'
