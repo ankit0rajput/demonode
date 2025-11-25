@@ -24,7 +24,7 @@ stages:
       displayName: Build an image
       inputs:
         containerRegistry: 'u9ankit-docker-hub-connection'
-        repository: 'ankit0rajput/demonode'
+        repository: 'u9ankit/demonode'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
         tags: '$(tag)'
