@@ -10,6 +10,8 @@ resources:
 
 variables:
   tag: '$(Build.BuildId)'
+  azureSubscription: 'azureserviceconnection'
+  appName: 'my-demonode-app'
 
 stages:
 - stage: Build
@@ -28,3 +30,20 @@ stages:
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
         tags: '$(tag)'
+
+# ---------------- DEPLOY ----------------
+- stage: Deploy
+  displayName: Deploy to Azure Web App
+  dependsOn: Build
+  jobs:
+  - job: Deploy
+    pool:
+      vmImage: ubuntu-latest
+    steps:
+    - task: AzureWebAppContainer@1
+      displayName: Deploy Docker Image to Azure Web App
+      inputs:
+        azureSubscription: '$(azureSubscription)'
+        appName: '$(appName)'
+        containers: |
+          $(imageName):$(tag)
