@@ -10,6 +10,10 @@ app.get('/health', (req, res) => {
   res.send('Health is ok');
 });
 
+app.get('/thankyou', (req, res) => {
+  res.send('thankyou page');
+});
+
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
