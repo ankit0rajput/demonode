@@ -22,5 +22,5 @@ stages:
             displayName: Deploy image to STAG Web App
             inputs:
               azureSubscription: 'azureserviceconnection'
-              appName: 'my-demonode-app-stag'
+              appName: 'node-demo-web-app-stag'
               containers: 'u9ankit/demonode:$(imageTag)'
