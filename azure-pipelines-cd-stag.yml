@@ -18,5 +18,9 @@ stages:
       runOnce:
         deploy:
           steps:
-          - script: |
-              echo "Deploying image tag: $(imageTag) to STAGING"
+          - task: AzureWebAppContainer@1
+            displayName: Deploy image to STAG Web App
+            inputs:
+              azureSubscription: 'azureserviceconnection'
+              appName: 'my-demonode-app-stag'
+              containers: 'u9ankit/demonode:$(imageTag)'
