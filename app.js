@@ -1,6 +1,9 @@
-// server.js
+require('dotenv').config(); 
 const express = require('express');
+
 const app = express();
+
+const PORT = process.env.PORT 
 
 app.get('/', (req, res) => {
   res.send('Hello from Node.js app 🚀');
@@ -13,8 +16,11 @@ app.get('/health', (req, res) => {
 app.get('/thankyou', (req, res) => {
   res.send('thankyou page');
 });
-
-const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+app.listen(PORT, (error) =>{
+    if(!error)
+        console.log(`Server is Successfully Running, 
+                   and App is listening on port ${PORT}`);
+    else 
+        console.log("Error occurred, server can't start", error);
+    }
+);
