@@ -1,0 +1,21 @@
+trigger: none
+
+resources:
+  pipelines:
+  - pipeline: ciPipeline
+    source: nodeapp-ci   # 👈 name of CI pipeline in Azure DevOps
+    trigger: true
+
+stages:
+- stage: Deploy_Dev
+  displayName: Deploy to DEV
+  jobs:
+  - deployment: DeployDev
+    displayName: Deploy to Dev Web App
+    environment: dev
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - script: |
+              echo "Deploying latest image to DEV"
