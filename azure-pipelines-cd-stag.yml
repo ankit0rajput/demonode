@@ -23,4 +23,4 @@ stages:
             inputs:
               azureSubscription: 'azureserviceconnection'
               appName: 'node-demo-web-app-stag'
-              containers: 'u9ankit/demonode:$(imageTag)'
+              containers:  u9ankit/demonode:${{ parameters.imageTag }}
