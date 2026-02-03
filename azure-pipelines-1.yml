@@ -29,4 +29,6 @@ stages:
         repository: 'u9ankit/demonode'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
-        tags: '$(tag)'
+        tags: |
+          $(tag)
+          latest
