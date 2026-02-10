@@ -8,7 +8,7 @@ const PORT = process.env.PORT
 
 
 app.get('/', (req, res) => {
-  res.send(`Hello from Node.js app 🚀 ${PORT}`);
+  res.send(`Helloo from Node.js app 🚀 ${PORT}`);
 });
 
 app.get('/health', (req, res) => {
