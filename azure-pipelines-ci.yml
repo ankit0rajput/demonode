@@ -10,7 +10,6 @@ resources:
 
 variables:
   tag: '$(Build.BuildId)'
-  azureSubscription: 'azureserviceconnection'
   appName: 'my-demonode-app'
 
 stages:
